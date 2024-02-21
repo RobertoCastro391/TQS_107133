@@ -31,6 +31,7 @@ class BoundedSetOfNaturalsTest {
     }
 
     //@Disabled("TODO revise test logic")
+    @DisplayName("Test construction")
     @Test
     public void testAddElement() {
 
@@ -51,6 +52,7 @@ class BoundedSetOfNaturalsTest {
     }
 
     //@Disabled("TODO revise to test the construction from invalid arrays")
+    @DisplayName("Test construction from array")
     @Test
     public void testAddFromBadArray() {
         int[] elems = new int[]{10, -20, -30};
@@ -59,9 +61,30 @@ class BoundedSetOfNaturalsTest {
         assertThrows(IllegalArgumentException.class, () -> BoundedSetOfNaturals.fromArray(elems), "fromArray: negative element added.");
     }
 
-    @Test 
+    @DisplayName("Test Intersection")
+    @Test
     public void testIntersection() {
-        assertTrue(setB.intersects(setC), "intersects: sets do not intersect.");
-        assertFalse(setA.intersects(setB), "intersects: sets do intersect.");
+        int[] elems = new int[]{10, 20, 30};
+
+        assertFalse(setA.intersect(BoundedSetOfNaturals.fromArray(elems)), "intersects: sets do intersect.");
+        assertTrue(setB.intersect(BoundedSetOfNaturals.fromArray(elems)), "intersects: sets do not intersect.");
+        assertTrue(setB.intersect(setC), "intersects: sets do not intersect.");
+        assertFalse(setA.intersect(setB), "intersects: sets do intersect.");
+    }
+
+    @DisplayName("Test hashCode")
+    @Test
+    public void testHashCode() {
+        assertEquals(setA.hashCode(), setA.hashCode(), "hashCode: hash codes are not equal.");
+        assertNotEquals(setA.hashCode(), setB.hashCode(), "hashCode: hash codes are equal.");
+    }
+
+    @DisplayName("Test equals")
+    @Test
+    public void testEquals() {
+        assertTrue(setA.equals(setA), "equals: sets are not equal.");
+        assertFalse(setA.equals(setB), "equals: sets are equal.");
+        assertFalse(setB.equals(null), "equals: sets are equal.");
+        assertFalse(setB.equals(new Object()), "equals: sets are equal.");
     }
 }
