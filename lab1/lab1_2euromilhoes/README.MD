@@ -13,8 +13,7 @@ Os teste que valem a pena serem escritos e que o devem ser são:
 Como se pode ver pelas análises do antes e depois da classe ***BoundedSetOfNaturals***, os testes analisaram toda a classe.
 
 **Antes:**
-[prints/printAntes.png](prints/printAntes.png)
-
+<img src="prints/printAntes.jpeg" alt="Antes">
 
 **Depois:**
-[prints/printDepois.png](prints/printDepois.png)
+<img src="prints/printDepois.jpeg" alt="Depois">
