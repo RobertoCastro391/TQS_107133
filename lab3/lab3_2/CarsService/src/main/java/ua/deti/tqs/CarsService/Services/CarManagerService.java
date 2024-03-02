@@ -26,12 +26,6 @@ public class CarManagerService {
 
     public Optional<Car> getCarDetails(Long carId) {
         
-        Car car = carRepository.findByCarId(carId);
-
-        if (car == null) {
-            return Optional.empty();
-        }
-        
-        return Optional.of(car);
+        return carRepository.findById(carId);
     }
 }

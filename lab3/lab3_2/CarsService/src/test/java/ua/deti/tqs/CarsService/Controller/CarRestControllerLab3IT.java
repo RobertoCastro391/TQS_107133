@@ -19,7 +19,7 @@ import ua.deti.tqs.CarsService.Car;
 import ua.deti.tqs.CarsService.Repository.CarRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource(locations = "application-integrationtest.properties")
+@TestPropertySource(locations = "classpath:application-integrationtest.properties")
 public class CarRestControllerLab3IT {
     
     @Autowired

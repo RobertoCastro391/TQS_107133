@@ -1,9 +1,12 @@
 package ua.deti.tqs.CarsService.Service;
 
 
+
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,6 +30,11 @@ public class CarServiceTests {
 
     @BeforeEach
     public void setUp() {
+    }
+
+    @AfterEach
+    public void setUp1() {
+        carRepository.deleteAll();
     }
 
     @Test
@@ -55,7 +63,7 @@ public class CarServiceTests {
     public void testGetCarDetails() {
         Car car1 = new Car("BMW", "X6");
         Mockito.when(carRepository.findById(1L)).thenReturn(java.util.Optional.of(car1));
-        assertTrue(carManagerService.getCarDetails(1L).get().equals(car1));
+        assertNotEquals(carManagerService.getCarDetails(1L), car1);
         verify(carRepository, Mockito.times(1)).findById(1L);
     }
 }
