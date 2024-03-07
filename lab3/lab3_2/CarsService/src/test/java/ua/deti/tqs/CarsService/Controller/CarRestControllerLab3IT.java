@@ -30,6 +30,7 @@ public class CarRestControllerLab3IT {
 
     @LocalServerPort
     int randomServerPort;
+    
 
     @Test
     public void whenPostCar_thenReturnCar() {
