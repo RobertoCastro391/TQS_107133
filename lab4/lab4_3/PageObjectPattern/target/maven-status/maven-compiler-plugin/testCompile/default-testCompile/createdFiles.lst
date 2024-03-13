@@ -1,7 +1,0 @@
-webpages/FillPassengerData.class
-webpages/ChooseFlightsPage.class
-webpages/HomePage.class
-webpages/LoginPage.class
-tests/DockerChromeLab4_4Test.class
-tests/BlazeTest.class
-webpages/ConfirmationPage.class
