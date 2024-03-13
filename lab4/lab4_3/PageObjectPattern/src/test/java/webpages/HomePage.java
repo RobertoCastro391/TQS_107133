@@ -15,7 +15,6 @@ public class HomePage {
     private static String PAGE_URL = "https://blazedemo.com";
 
     // Locators
-    // Apply as Developer Button
     @FindBy(how = How.NAME, using = "fromPort")
     private WebElement fromPortInput;
 
