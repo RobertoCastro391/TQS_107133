@@ -52,14 +52,6 @@ public class CalculatorSteps {
         calc.push("*");
     }
 
-    @When("I divide {int} by zero")
-    public void divideByZero(int arg1) {
-        log.debug("Dividing {} by zero", arg1);
-        calc.push(arg1);
-        calc.push(0);
-        calc.push("/");
-    }
-
     @Then("the result is {int}")
     public void the_result_is(double expected) {
         Number value = calc.value();

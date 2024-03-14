@@ -25,10 +25,10 @@ Feature: Basic Arithmetic
     When I divide 10 by 2
     Then the result is 5
 
+  Scenario: Division
+      When I divide 10 by 0
+      Then the result is an error
+
   Scenario: Multiplication
     When I multiply 3 by 4
     Then the result is 12
-
-  Scenario: Division by zero
-    When I divide 10 by zero
-    Then the result is an error
