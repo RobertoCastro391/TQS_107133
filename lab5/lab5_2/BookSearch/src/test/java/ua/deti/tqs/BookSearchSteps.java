@@ -31,7 +31,7 @@ public class BookSearchSteps {
     }
 
     @ParameterType("([0-9]{4})-([0-9]{2})-([0-9]{2})")
-    public Date date(String year, String month, String day) {
+    public Date iso8601Date(String year, String month, String day) {
         LocalDateTime ldt = LocalDateTime.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day), 0, 0);
         return Date.from(ldt.toInstant(ZoneOffset.UTC));
     }
@@ -69,7 +69,7 @@ public class BookSearchSteps {
         assertEquals(expectedAuthor, result.get(0).getAuthor(), "The found book should have the expected author.");
     }
 
-    @When("I search for books published between {date} and {date}")
+    @When("I search for books published between {iso8601Date} and {iso8601Date}")
     public void whenISearchForBooksPublishedBetweenAnd(Date fromDate, Date toDate) {
         log.debug("Searching for books published between " + fromDate + " and " + toDate);
         result = library.findBooks(fromDate, toDate); 
