@@ -37,4 +37,5 @@ Depois da análise:
   * 62 linhas de código por cobrir;
   * 30 condições por cobrir.
 
-![image](prints/Values.png)
+
+<img src="prints/Values.png" width="40%">
