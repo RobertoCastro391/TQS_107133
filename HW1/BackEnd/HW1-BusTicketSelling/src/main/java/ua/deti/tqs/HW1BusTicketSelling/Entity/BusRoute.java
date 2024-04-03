@@ -1,5 +1,6 @@
 package ua.deti.tqs.HW1BusTicketSelling.Entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -32,8 +33,14 @@ public class BusRoute {
     @Column(name = "ArrivalCity")
     private String arrivalCity;
 
+    @Column(name = "DepartureDate")
+    private LocalDate departureDate;
+
     @Column(name = "DepartureTime")
     private Date departureTime;
+
+    @Column(name = "ArrivalDate")
+    private LocalDate arrivalDate;
 
     @Column(name = "ArrivalTime")
     private Date arrivalTime;

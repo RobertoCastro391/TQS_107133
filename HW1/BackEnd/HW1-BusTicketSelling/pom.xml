@@ -27,6 +27,14 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.ben-manes.caffeine</groupId>
+			<artifactId>caffeine</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
@@ -42,6 +50,10 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -61,11 +73,9 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.2.0</version>
 				<configuration>
-					<mainClass>ua.deti.tqs.Hw1BusTicketSellingApplication</mainClass>
+					<mainClass>ua.deti.tqs.HW1BusTicketSelling.Hw1BusTicketSellingApplication</mainClass>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
-
 </project>

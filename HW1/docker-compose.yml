@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  Database:
+    image: mysql:latest
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: HW1BusTicketSelling
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "user", "--password=password"]
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./Backend/HW1-BusTicketSelling
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      Database:
+        condition: service_healthy
+    networks:
+      - app-network
+
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:

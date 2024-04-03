@@ -1,6 +1,8 @@
 package ua.deti.tqs.HW1BusTicketSelling.Config;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -27,7 +29,9 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        
         String[][] routes = {
             {"Lisbon", "Porto"},
             {"Porto", "Braga"},
@@ -40,7 +44,6 @@ public class DataInitializer implements CommandLineRunner {
             {"Coimbra", "Porto"},
             {"Aveiro", "Coimbra"}
         };
-
         String[][] buses = {
             {"AA-00-00", "Mercedes", "Model1", "56", "FlexiBus"},
             {"BB-11-11", "Mercedes", "Model2", "67", "Renex"},
@@ -68,8 +71,10 @@ public class DataInitializer implements CommandLineRunner {
         newRoute.setRouteId("FLX123");
         newRoute.setDepartureCity("Lisboa");
         newRoute.setArrivalCity("Porto");
-        newRoute.setDepartureTime(dateFormat.parse("2024-04-01 08:00"));
-        newRoute.setArrivalTime(dateFormat.parse("2024-04-01 12:00"));
+        newRoute.setDepartureDate(LocalDate.parse("2024-04-01", formatter));
+        newRoute.setDepartureTime(timeFormat.parse("2024-04-01 08:00"));
+        newRoute.setArrivalDate(LocalDate.parse("2024-04-01", formatter));
+        newRoute.setArrivalTime(timeFormat.parse("2024-04-01 12:00"));
         newRoute.setDuration(240);
         newRoute.setPrice(20.0);
         newRoute.setBusSeatsAvailable(56);
@@ -82,8 +87,10 @@ public class DataInitializer implements CommandLineRunner {
         newRoute2.setRouteId("REN763");
         newRoute2.setDepartureCity("Porto");
         newRoute2.setArrivalCity("Lisboa");
-        newRoute2.setDepartureTime(dateFormat.parse("2024-04-01 08:00"));
-        newRoute2.setArrivalTime(dateFormat.parse("2024-04-01 12:00"));
+        newRoute2.setDepartureDate(LocalDate.parse("2024-04-01", formatter));
+        newRoute2.setDepartureTime(timeFormat.parse("2024-04-01 08:00"));
+        newRoute2.setArrivalDate(LocalDate.parse("2024-04-01", formatter));
+        newRoute2.setArrivalTime(timeFormat.parse("2024-04-01 12:00"));
         newRoute2.setDuration(240);
         newRoute2.setPrice(25.0);
         newRoute2.setBusSeatsAvailable(67);
