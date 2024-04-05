@@ -1,0 +1,28 @@
+.container-passenger-details-form {
+  padding: 2%;
+}
+
+.container-inside-passenger-details-form {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex; 
+    flex-direction: row;
+    margin-top: 2%;
+}
+
+.column {
+    padding: 1%;
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label1 {
+    font-size: 1.2em;
+}
+
+.label2 {
+    margin-top: 2%;
+    font-size: 1.2em;
+}

@@ -1,0 +1,48 @@
+.bus-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #d9d9d9;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.bus-card-header {
+    flex: 0.3;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 150%;
+    border-right: 2px solid black;
+}
+
+.bus-card-body {
+    flex: 0.7;
+    padding: 20px;
+}
+
+.bus-card-route {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.label {
+    font-size: 100%;
+}
+
+.label-props {
+    margin-left: 5%;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.card-fare {
+    font-weight: bold;
+    text-align: center;
+    font-size: 150%;
+}
