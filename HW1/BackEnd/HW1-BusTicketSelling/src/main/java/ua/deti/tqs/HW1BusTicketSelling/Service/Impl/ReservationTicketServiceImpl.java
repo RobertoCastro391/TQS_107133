@@ -31,7 +31,6 @@ public class ReservationTicketServiceImpl implements ReservationTicketService {
     @Override
     public ReservationTicket createTicket(BusReservationDTO reservationDTO) {
 
-        System.out.println("Creating ticket");
 
         Client client = new Client();
         client.setClientName(reservationDTO.getClientName());
@@ -60,9 +59,6 @@ public class ReservationTicketServiceImpl implements ReservationTicketService {
         BusRoute route = busRouteRepository.findByRouteId(reservationDTO.getRouteId());
         route.setBusSeatsAvailable(route.getBusSeatsAvailable() - 1);
         busRouteRepository.save(route);
-
-        System.out.println("Ticket created");
-        System.out.println("Route seats available: " + route.getBusSeatsAvailable());
 
         return reservationTicketRepository.save(reservation);
     }
