@@ -13,6 +13,7 @@ interface BusRoute {
   routeId: string;
   departureCity: string;
   arrivalCity: string;
+  departureDate: string;
   departureTime: string;
   arrivalTime: string;
   price: number;
@@ -100,6 +101,7 @@ const ListBus = () => {
                 busNumber={busRoute.routeId}
                 departureCity={busRoute.departureCity}
                 arrivalCity={busRoute.arrivalCity}
+                departureDate={busRoute.departureDate}
                 departureTime={busRoute.departureTime}
                 arrivalTime={busRoute.arrivalTime}
                 fare={busRoute.price}

@@ -8,7 +8,7 @@ const PassengerDetails = () => {
   const location = useLocation();
   const busNumber = location.state.busNumber || {};
   const fare = location.state.fare || {};
-  let departureTime = location.state.departureTime || {};
+  let departureTime = location.state.departureDate || {};
   departureTime = new Date(departureTime).toLocaleDateString([], {
     day: "2-digit",
     month: "2-digit",

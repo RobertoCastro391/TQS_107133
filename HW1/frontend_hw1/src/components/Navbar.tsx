@@ -20,7 +20,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchCurrencies = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/busRoute/getAllCurrencies");
+        const response = await fetch("http://localhost:8080/api/currency/getAllCurrencies");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -48,7 +48,7 @@ const Navbar = () => {
 
 
     try {
-      const url = `http://localhost:8080/api/busRoute/getExhangeRate/${currency.code}`;
+      const url = `http://localhost:8080/api/currency/getExhangeRate/${currency.code}`;
       
       const response = await fetch(url , {
         method: "GET",
@@ -73,11 +73,11 @@ const Navbar = () => {
   };
 
   const handleSearchClick = () => {
-    navigate("/search"); // Replace '/search' with your desired route
+    navigate("/search"); 
   };
 
   const handleHomeClick = () => {
-    navigate("/"); // Replace '/search' with your desired route
+    navigate("/");
   };
 
   return (

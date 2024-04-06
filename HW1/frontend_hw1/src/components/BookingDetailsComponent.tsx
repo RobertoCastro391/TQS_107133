@@ -18,7 +18,9 @@ interface props {
       departureCity?: string;
       arrivalCity?: string;
       departureTime?: string;
+      departureDate?: string;
       arrivalTime?: string;
+      arrivalDate?: string;
     };
     fare?: number;
     reservationDate?: Date;
@@ -90,13 +92,19 @@ const BookingDetailsComponent = ({ reservationId, reservation }: props) => {
                     <p className="card-text">
                       Departure Time:{" "}
                       <strong>
+                      {reservation.busRouteInfo.arrivalDate
+                          ? new Date(
+                            reservation.busRouteInfo.arrivalDate
+                            ).toLocaleDateString([], {
+                              day: "2-digit",
+                              month: "2-digit",
+                              year: "numeric",
+                            })
+                          : ""},{" "}
                         {reservation.busRouteInfo.departureTime
                           ? new Date(
                               reservation.busRouteInfo.departureTime
                             ).toLocaleTimeString([], {
-                              day: "2-digit",
-                              month: "2-digit",
-                              year: "numeric",
                               hour: "2-digit",
                               minute: "2-digit",
                             })
@@ -108,13 +116,19 @@ const BookingDetailsComponent = ({ reservationId, reservation }: props) => {
                     <p className="card-text">
                       Arrival Time:{" "}
                       <strong>
+                      {reservation.busRouteInfo.arrivalDate
+                          ? new Date(
+                            reservation.busRouteInfo.arrivalDate
+                            ).toLocaleDateString([], {
+                              day: "2-digit",
+                              month: "2-digit",
+                              year: "numeric",
+                            })
+                          : ""}, {" "}
                         {reservation.busRouteInfo.arrivalTime
                           ? new Date(
                               reservation.busRouteInfo.arrivalTime
                             ).toLocaleTimeString([], {
-                              day: "2-digit",
-                              month: "2-digit",
-                              year: "numeric",
                               hour: "2-digit",
                               minute: "2-digit",
                             })

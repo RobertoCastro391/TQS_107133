@@ -8,6 +8,7 @@ interface props {
   busNumber: string;
   departureCity: string;
   arrivalCity: string;
+  departureDate: string;
   departureTime: string;
   arrivalTime: string;
   fare: number;
@@ -18,6 +19,7 @@ const CardBus = ({
   busNumber,
   departureCity,
   arrivalCity,
+  departureDate,
   departureTime,
   arrivalTime,
   fare,
@@ -32,7 +34,7 @@ const CardBus = ({
 
   const handleBook = () => {
     navigate("/passenger-details", {
-      state: { busNumber, fare, departureTime },
+      state: { busNumber, fare, departureDate },
     });
   };
 

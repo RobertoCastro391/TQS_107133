@@ -59,15 +59,5 @@ public class BusRoute {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "BusId", referencedColumnName = "Id", insertable = false, updatable = false)
-    private Bus busInfo;
-
-    @Override
-    public String toString() {
-        return "BusRoute [routeId=" + routeId + ", departureCity=" + departureCity + ", arrivalCity=" + arrivalCity
-                + ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + ", duration=" + duration
-                + ", price=" + price + ", busSeatsAvailable=" + busSeatsAvailable + ", busId=" + busId + ", busInfo="
-                + busInfo + "]";
-    }
-
-    
+    private Bus busInfo;    
 }

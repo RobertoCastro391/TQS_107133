@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BookingDetailsComponent from "../components/BookingDetailsComponent";
+import ButtonConfirm from "../components/ButtonConfirm/ButtonConfirm";
 
 interface Reservation {
   ticketId?: string;
@@ -20,7 +21,9 @@ interface Reservation {
     departureCity?: string;
     arrivalCity?: string;
     departureTime?: string;
+    departureDate?: string;
     arrivalTime?: string;
+    arrivalDate?: string;
   };
   fare?: number;
   reservationDate?: Date;
@@ -35,6 +38,7 @@ const BookingDetails = () => {
   const reservationId = location.state?.reservationId;
 
   const [reservation, setReservation] = useState<Reservation>({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,7 +76,9 @@ const BookingDetails = () => {
                   departureCity: data.busRouteInfo.departureCity,
                   arrivalCity: data.busRouteInfo.arrivalCity,
                   departureTime: data.busRouteInfo.departureTime,
+                  departureDate: data.busRouteInfo.departureDate,
                   arrivalTime: data.busRouteInfo.arrivalTime,
+                  arrivalDate: data.busRouteInfo.arrivalDate,
                 }
               : undefined,
             fare: data.price,
@@ -98,10 +104,31 @@ const BookingDetails = () => {
     }
   }, [reservationId]);
 
+  const handleReturn = () => {
+    navigate("/checkBooking");
+  }
+
   return (
     <>
       <Navbar />
-        <BookingDetailsComponent reservationId={reservationId} reservation={reservation} />
+
+      {reservation && reservation.client && (
+        <BookingDetailsComponent
+          reservationId={reservationId}
+          reservation={reservation}
+        />
+      )}
+
+      {!reservation ||
+        (!reservation.client && (
+          <div style={{ padding: "2%" }}>
+            <h2 style={{ textAlign: "center", fontWeight: "normal" }}>
+              No reservation found with ID: <strong>{reservationId}</strong>
+            </h2>
+            <ButtonConfirm text="Return to Check your booking page" handleClick={handleReturn}/>
+          </div>
+        ))}
+
       <Footer />
     </>
   );
