@@ -1,6 +1,6 @@
 package ua.deti.tqs.HW1BusTicketSelling.DTO;
 
-import java.sql.Date;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

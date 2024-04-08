@@ -18,8 +18,8 @@ import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRouteRepository;
 @Component
 public class CSVToDB implements CommandLineRunner {
 
-    String csvBuses = "src/main/resources/buses.csv";
-    String csvBusRoutes = "src/main/resources/bus_routes.csv";
+    public String csvBuses = "src/main/resources/buses.csv";
+    public String csvBusRoutes = "src/main/resources/bus_routes.csv";
 
     private BusRepository busRepository;
     private BusRouteRepository busRouteRepository;
@@ -36,7 +36,7 @@ public class CSVToDB implements CommandLineRunner {
         loadBusRoutes();
     }
 
-    private void loadBuses() throws Exception {
+    public void loadBuses() throws Exception {
         try (BufferedReader br = new BufferedReader(new FileReader(csvBuses))) {
             String line;
             br.readLine();
@@ -57,7 +57,7 @@ public class CSVToDB implements CommandLineRunner {
         }
     }
 
-    private void loadBusRoutes() throws Exception {
+    public void loadBusRoutes() throws Exception {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         

@@ -81,17 +81,26 @@ const PassengerDetailsForm = ({ busNumber, fare, departureTime }: Props) => {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorMessage = await response.text();
+        if (errorMessage === "Bus is full") {
+          alert(
+            "Sorry, this bus is full. Please choose another bus or departure time."
+          );
+          navigate("/");
+        } else {
+          
+          alert(errorMessage);
+        }
+      } else {
+        const data = await response.json();
+        console.log("Data:", data);
+        navigate("/bookingConfirmation", {
+          state: { data, clientName, clientSurname },
+        });
       }
-
-      const data = await response.json();
-      console.log("Success:", data);
-
-      navigate("/bookingConfirmation", {
-        state: { data, clientName, clientSurname },
-      });
     } catch (error) {
       console.error("Error during booking:", error);
+      alert("An error occurred during booking. Please try again.");
     }
   };
 
@@ -164,7 +173,10 @@ const PassengerDetailsForm = ({ busNumber, fare, departureTime }: Props) => {
         </div>
       </div>
       <p className="label2">
-        Insert Credit Card Details - <strong>{price} {currencySymbol}</strong>
+        Insert Credit Card Details -{" "}
+        <strong>
+          {price} {currencySymbol}
+        </strong>
       </p>
       <div className="container-inside-passenger-details-form">
         <div className="column">

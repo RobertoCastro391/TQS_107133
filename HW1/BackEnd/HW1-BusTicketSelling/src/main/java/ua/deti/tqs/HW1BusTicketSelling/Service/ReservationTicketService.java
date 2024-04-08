@@ -64,9 +64,4 @@ public class ReservationTicketService {
     public ReservationTicket getTicketById(String ticket_id) {
         return reservationTicketRepository.findByTicketId(ticket_id);
     } 
-
-    public List<ReservationTicket> getTicketsByClient(int client_id) {
-        Client client = clientRepository.findByClientId(client_id);
-        return reservationTicketRepository.findByClient(client);
-    }
 }

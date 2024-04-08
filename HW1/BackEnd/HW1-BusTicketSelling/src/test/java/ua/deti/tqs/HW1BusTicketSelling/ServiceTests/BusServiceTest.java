@@ -32,7 +32,7 @@ public class BusServiceTest {
 
     @Test
     @DisplayName("Test Get bus by Id")
-    public void testGetBusById() {
+    void testGetBusById() {
 
         Bus bus1 = new Bus(1, "11-BB-11", "Mercedes", "Sprinter", 20, "Renex");
         Bus bus2 = new Bus(2, "22-CC-22", "Mercedes", "Sprinter", 20, "FlixBus");
@@ -52,7 +52,7 @@ public class BusServiceTest {
 
     @Test
     @DisplayName("Test Get all buses")
-    public void testGetAllBus() {
+    void testGetAllBus() {
 
         Bus bus1 = new Bus(1, "11-BB-11", "Mercedes", "Sprinter", 20, "Renex");
         Bus bus2 = new Bus(2, "22-CC-22", "Mercedes", "Sprinter", 20, "FlixBus");

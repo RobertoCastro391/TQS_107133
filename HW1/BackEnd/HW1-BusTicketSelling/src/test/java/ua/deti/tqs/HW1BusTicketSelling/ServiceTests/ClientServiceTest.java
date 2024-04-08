@@ -27,16 +27,14 @@ public class ClientServiceTest {
 
     @Test
     @DisplayName("Test Get Client by name and surname")
-    public void testGetClientByNameAndSurname() {
+    void testGetClientByNameAndSurname() {
         Client client = new Client(1, "Joao", "Silva", "joaosilva@gmail.com", "Rua do Joao", "4000-000", "Porto", "Portugal", "912345678");
     
-        when(clientRepository.getClientIdByClientNameAndClientSurname("Joao", "Silva")).thenReturn(client.getClientId());
+        when(clientRepository.getClientByClientNameAndClientSurname("Joao", "Silva")).thenReturn(client);
 
-        assertEquals(1, clientService.getClientIdByNameAndSurname("Joao", "Silva"));
+        assertEquals(client, clientService.getClientByNameAndSurname("Joao", "Silva"));
 
-        verify(clientRepository, times(1)).getClientIdByClientNameAndClientSurname("Joao", "Silva");
+        verify(clientRepository, times(1)).getClientByClientNameAndClientSurname("Joao", "Silva");
     
     }
-
-    
 }

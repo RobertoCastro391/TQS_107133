@@ -15,6 +15,7 @@ import org.apache.logging.log4j.*;
 
 import lombok.AllArgsConstructor;
 import ua.deti.tqs.HW1BusTicketSelling.DTO.BusReservationDTO;
+import ua.deti.tqs.HW1BusTicketSelling.Entity.Client;
 import ua.deti.tqs.HW1BusTicketSelling.Entity.ReservationTicket;
 import ua.deti.tqs.HW1BusTicketSelling.Service.BusRouteService;
 import ua.deti.tqs.HW1BusTicketSelling.Service.ClientService;
@@ -27,7 +28,6 @@ public class ReservationTicketController {
 
     private final BusRouteService busRouteService;
     private final ReservationTicketService ticketReservationService;
-    private final ClientService clientService;
 
     private static Logger log = LogManager.getLogger(BusRouteController.class);
 
@@ -39,18 +39,6 @@ public class ReservationTicketController {
         log.info("GET Reservation by reservationId: " + reservationId);
 
         return ResponseEntity.ok(ticketReservationService.getTicketById(reservationId));
-    }
-
-    @GetMapping("/getReservationsByClient/{clientName}")
-    public ResponseEntity<List<ReservationTicket>> getTicketReservationsByClientId(
-            @PathVariable("clientName") String clientName) {
-
-        log.info("GET Reservations by clientName: " + clientName);
-        String[] name = clientName.split(" ");
-        int clientId = clientService.getClientIdByNameAndSurname(name[0], name[1]);
-        List<ReservationTicket> tickets = ticketReservationService.getTicketsByClient(clientId);
-        log.info("Response: " + tickets);
-        return ResponseEntity.ok(tickets);
     }
 
     @PostMapping("/createReservation")
