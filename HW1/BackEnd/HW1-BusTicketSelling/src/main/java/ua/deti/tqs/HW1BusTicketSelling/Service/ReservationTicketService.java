@@ -1,8 +1,5 @@
 package ua.deti.tqs.HW1BusTicketSelling.Service;
 
-import java.util.List;
-
-
 import org.springframework.stereotype.Service;
 
 import ua.deti.tqs.HW1BusTicketSelling.DTO.BusReservationDTO;

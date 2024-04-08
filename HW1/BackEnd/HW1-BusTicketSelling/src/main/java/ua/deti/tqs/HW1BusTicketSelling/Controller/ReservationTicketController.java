@@ -1,7 +1,6 @@
 package ua.deti.tqs.HW1BusTicketSelling.Controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
@@ -15,10 +14,8 @@ import org.apache.logging.log4j.*;
 
 import lombok.AllArgsConstructor;
 import ua.deti.tqs.HW1BusTicketSelling.DTO.BusReservationDTO;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Client;
 import ua.deti.tqs.HW1BusTicketSelling.Entity.ReservationTicket;
 import ua.deti.tqs.HW1BusTicketSelling.Service.BusRouteService;
-import ua.deti.tqs.HW1BusTicketSelling.Service.ClientService;
 import ua.deti.tqs.HW1BusTicketSelling.Service.ReservationTicketService;
 
 @RestController

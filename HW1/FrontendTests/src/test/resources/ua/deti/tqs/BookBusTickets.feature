@@ -25,10 +25,10 @@ Feature: BusTicket Book Bus
         And I capture the confirmation code
         Then I should get the "Booking Confirmed!!"
 
-    # Scenario: Check Reservation
-    #     When I click on the Check Reservation button
-    #     And I write the confirmation code
-    #     And I click on the Search Button
-    #     Then I should get the "Booking Details" and the Reservation Status "Confirmed"
+    Scenario: Check Reservation
+        When I click on the Check Reservation button
+        And I write the confirmation code
+        And I click on the Search Button
+        Then I should get the "Booking Details" and the Reservation Status "Confirmed"
             
 
