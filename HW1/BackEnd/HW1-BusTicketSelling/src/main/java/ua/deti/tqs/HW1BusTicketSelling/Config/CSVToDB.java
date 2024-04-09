@@ -19,7 +19,6 @@ public class CSVToDB implements CommandLineRunner {
 
     private String csvBuses = "src/main/resources/buses.csv";
     private String csvBusRoutes = "src/main/resources/bus_routes.csv";
-    
 
     private BusRepository busRepository;
     private BusRouteRepository busRouteRepository;
