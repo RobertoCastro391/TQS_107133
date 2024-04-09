@@ -1,11 +1,11 @@
-package ua.deti.tqs.HW1BusTicketSelling.Service;
+package ua.deti.tqs.hw1busticketselling.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Bus;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRepository;
+import ua.deti.tqs.hw1busticketselling.entity.Bus;
+import ua.deti.tqs.hw1busticketselling.repository.BusRepository;
 
 @Service
 public class BusService {

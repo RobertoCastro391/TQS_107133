@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.IntegrationTests;
+package ua.deti.tqs.hw1busticketselling.integrationTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,8 +11,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Bus;
-import ua.deti.tqs.HW1BusTicketSelling.Service.BusService;
+import ua.deti.tqs.hw1busticketselling.entity.Bus;
+import ua.deti.tqs.hw1busticketselling.service.BusService;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class BusControllerTest {
+class BusControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -32,7 +32,7 @@ public class BusControllerTest {
     String url = "/api/bus";
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         Bus bus1 = new Bus(1, "11-BB-11", "Mercedes", "Sprinter", 20, "Renex");
         Bus bus2 = new Bus(2, "33-DD-33", "Mercedes", "Sprinter", 20, "Renex");
         

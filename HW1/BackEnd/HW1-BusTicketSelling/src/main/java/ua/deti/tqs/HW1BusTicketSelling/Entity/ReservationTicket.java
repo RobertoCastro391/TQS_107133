@@ -1,7 +1,7 @@
-package ua.deti.tqs.HW1BusTicketSelling.Entity;
+package ua.deti.tqs.hw1busticketselling.entity;
 
+import java.security.SecureRandom;
 import java.util.Date;
-import java.util.Random;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -68,7 +68,7 @@ public class ReservationTicket {
     private String generateRandomId() {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder result = new StringBuilder(5);
-        Random random = new Random();
+        SecureRandom random = new SecureRandom();
         for (int i = 0; i < 5; i++) {
             result.append(characters.charAt(random.nextInt(characters.length())));
         }

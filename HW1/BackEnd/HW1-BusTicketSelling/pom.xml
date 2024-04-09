@@ -9,7 +9,7 @@
 		<relativePath/>
 	</parent>
 	<groupId>ua.deti.tqs</groupId>
-	<artifactId>HW1-BusTicketSelling</artifactId>
+	<artifactId>hw1-busTicketSelling</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>HW1-BusTicketSelling</name>
 	<description>Demo project for Spring Boot</description>
@@ -112,7 +112,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.2.0</version>
 				<configuration>
-					<mainClass>ua.deti.tqs.HW1BusTicketSelling.Hw1BusTicketSellingApplication</mainClass>
+					<mainClass>ua.deti.tqs.hw1busticketselling.HW1BusTicketSelling</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>

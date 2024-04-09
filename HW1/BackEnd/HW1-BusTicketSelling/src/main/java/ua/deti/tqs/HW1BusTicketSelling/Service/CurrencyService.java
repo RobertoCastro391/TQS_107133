@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.Service;
+package ua.deti.tqs.hw1busticketselling.service;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;

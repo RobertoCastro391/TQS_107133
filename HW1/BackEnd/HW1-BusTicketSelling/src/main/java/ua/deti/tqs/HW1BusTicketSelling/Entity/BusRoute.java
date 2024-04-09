@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.Entity;
+package ua.deti.tqs.hw1busticketselling.entity;
 
 import java.time.LocalDate;
 import java.util.Date;

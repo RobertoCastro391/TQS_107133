@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.UnitTests;
+package ua.deti.tqs.hw1busticketselling.unitTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,9 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Bus;
+import ua.deti.tqs.hw1busticketselling.entity.Bus;
 
-public class BusTest {
+class BusTest {
 
     private Bus bus;
 
@@ -28,7 +28,7 @@ public class BusTest {
     void testSetGetBusId() {
 
         bus.setBusId(2);
-        assertEquals(bus.getBusId(), 2);
+        assertEquals(2, bus.getBusId());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class BusTest {
     void testSetGetBusLicensePlate() {
 
         bus.setBusLicensePlate("AA-BB-01");
-        assertEquals(bus.getBusLicensePlate(), "AA-BB-01");
+        assertEquals("AA-BB-01", bus.getBusLicensePlate());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class BusTest {
     void testSetBusBrand() {
 
         bus.setBusBrand("Volvo");
-        assertEquals(bus.getBusBrand(), "Volvo");
+        assertEquals("Volvo", bus.getBusBrand());
     }
 
     @Test
@@ -52,7 +52,7 @@ public class BusTest {
     void testSetGetBusModel() {
 
         bus.setBusModel("V60");
-        assertEquals(bus.getBusModel(), "V60");
+        assertEquals("V60", bus.getBusModel());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class BusTest {
     void testSetGetBusCapacity() {
 
         bus.setBusSeats(30);
-        assertEquals(bus.getBusSeats(), 30);
+        assertEquals(30,bus.getBusSeats());
     }
 
     @Test
@@ -68,6 +68,6 @@ public class BusTest {
     void testSetGetBusCompany() {
 
         bus.setBusCompany("Flexibus");
-        assertEquals(bus.getBusCompany(),"Flexibus");
+        assertEquals("Flexibus", bus.getBusCompany());
     }   
 }

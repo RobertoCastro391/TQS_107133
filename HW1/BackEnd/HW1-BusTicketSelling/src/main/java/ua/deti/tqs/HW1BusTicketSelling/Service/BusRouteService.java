@@ -1,13 +1,12 @@
-package ua.deti.tqs.HW1BusTicketSelling.Service;
+package ua.deti.tqs.hw1busticketselling.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-
-import ua.deti.tqs.HW1BusTicketSelling.DTO.BusRouteSearchDTO;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.BusRoute;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRouteRepository;
+import ua.deti.tqs.hw1busticketselling.dto.BusRouteSearchDTO;
+import ua.deti.tqs.hw1busticketselling.entity.BusRoute;
+import ua.deti.tqs.hw1busticketselling.repository.BusRouteRepository;
 
 @Service
 public class BusRouteService {
@@ -18,8 +17,7 @@ public class BusRouteService {
     }
 
     public Boolean isBusAvailable(BusRoute busRoute) {
-        Boolean isFull = busRoute.getBusSeatsAvailable() > 0;
-        return isFull;
+        return busRoute.getBusSeatsAvailable() > 0;
     }
 
     public BusRoute getBusRouteById(String routeId) {

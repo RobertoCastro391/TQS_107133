@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.IntegrationTests;
+package ua.deti.tqs.hw1busticketselling.integrationTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import ua.deti.tqs.HW1BusTicketSelling.Service.CurrencyService;
+import ua.deti.tqs.hw1busticketselling.service.CurrencyService;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CurrencyControllerTest {
+class CurrencyControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -34,7 +34,7 @@ public class CurrencyControllerTest {
     String url = "/api/currency";
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
     }
 
     @Test

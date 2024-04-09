@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.UnitTests;
+package ua.deti.tqs.hw1busticketselling.unitTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -9,11 +9,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import ua.deti.tqs.HW1BusTicketSelling.Entity.BusRoute;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Client;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.ReservationTicket;
+import ua.deti.tqs.hw1busticketselling.entity.BusRoute;
+import ua.deti.tqs.hw1busticketselling.entity.Client;
+import ua.deti.tqs.hw1busticketselling.entity.ReservationTicket;
 
-public class ReservationTicketTest {
+class ReservationTicketTest {
 
     private ReservationTicket ticket;
     private BusRoute busRoute;
@@ -37,7 +37,7 @@ public class ReservationTicketTest {
         assert(ticket.getTicketId() != null);
 
         ticket.setTicketId("AS23DF");
-        assertEquals(ticket.getTicketId(), "AS23DF");
+        assertEquals("AS23DF", ticket.getTicketId());
     }
 
     @Test 
@@ -45,12 +45,12 @@ public class ReservationTicketTest {
     void testGenerateGetSetClientIdClient() {
         
         ticket.setClientId(1);
-        assertEquals(ticket.getClientId(), 1);
+        assertEquals(1, ticket.getClientId());
 
         client = new Client();
 
         ticket.setClient(client);
-        assertEquals(ticket.getClient(), client);
+        assertEquals(client, ticket.getClient());
     }
 
     @Test 
@@ -58,19 +58,19 @@ public class ReservationTicketTest {
     void testGenerateGetSetBusRouteIdBusRoute() {
         
         ticket.setBusRouteId("1");
-        assertEquals(ticket.getBusRouteId(), "1");
+        assertEquals("1", ticket.getBusRouteId());
 
         busRoute = new BusRoute();
 
         ticket.setBusRouteInfo(busRoute);
-        assertEquals(ticket.getBusRouteInfo(), busRoute);
+        assertEquals(busRoute, ticket.getBusRouteInfo());
     }
 
     @Test
     @DisplayName("Test Set and Get Price")
     void testSetGetPrice() {
         ticket.setPrice(10.0);
-        assertEquals(ticket.getPrice(), 10.0);
+        assertEquals(10.0, ticket.getPrice());
     }
 
     @Test
@@ -78,7 +78,7 @@ public class ReservationTicketTest {
     void testSetGetReservationDate() {
         Date date = Date.valueOf("2024-11-10");
         ticket.setReservationDate(date);
-        assertEquals(ticket.getReservationDate(),date);
+        assertEquals(date, ticket.getReservationDate());
     }
 
     @Test
@@ -88,15 +88,15 @@ public class ReservationTicketTest {
         ticket.setCreditCardExpiration("12/2024");
         ticket.setCreditCardCVV("123");
 
-        assertEquals(ticket.getCreditCardNumber(), "1234567890123456");
-        assertEquals(ticket.getCreditCardExpiration(), "12/2024");
-        assertEquals(ticket.getCreditCardCVV(), "123");
+        assertEquals("1234567890123456", ticket.getCreditCardNumber());
+        assertEquals("12/2024", ticket.getCreditCardExpiration());
+        assertEquals("123", ticket.getCreditCardCVV());
     }
 
     @Test
     @DisplayName("Test Set Get Reservation Status")
     void testSetGetReservationStatus() {
         ticket.setReverStatus("Confirmed");
-        assertEquals(ticket.getReverStatus(), "Confirmed");
+        assertEquals("Confirmed", ticket.getReverStatus());
     }
 }

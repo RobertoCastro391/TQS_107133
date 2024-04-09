@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.ServiceTests;
+package ua.deti.tqs.hw1busticketselling.serviceTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -20,14 +20,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import ua.deti.tqs.HW1BusTicketSelling.DTO.BusRouteSearchDTO;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Bus;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.BusRoute;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRouteRepository;
-import ua.deti.tqs.HW1BusTicketSelling.Service.BusRouteService;
+import ua.deti.tqs.hw1busticketselling.dto.BusRouteSearchDTO;
+import ua.deti.tqs.hw1busticketselling.entity.Bus;
+import ua.deti.tqs.hw1busticketselling.entity.BusRoute;
+import ua.deti.tqs.hw1busticketselling.repository.BusRouteRepository;
+import ua.deti.tqs.hw1busticketselling.service.BusRouteService;
 
 @ExtendWith(MockitoExtension.class)
-public class BusRouteServiceTest {
+class BusRouteServiceTest {
 
         @Mock(lenient = true)
         BusRouteRepository busRouteRepository;
@@ -102,7 +102,7 @@ public class BusRouteServiceTest {
 
         @Test
         @DisplayName("Test search bus route")
-        public void testSearchBusRoute() {
+        void testSearchBusRoute() {
                 Bus bus1 = new Bus(1, "11-BB-11", "Mercedes", "Sprinter", 20, "Renex");
 
                 BusRoute busRoute1 = new BusRoute("1", "Porto", "Lisboa", LocalDate.parse("2024-04-05"),

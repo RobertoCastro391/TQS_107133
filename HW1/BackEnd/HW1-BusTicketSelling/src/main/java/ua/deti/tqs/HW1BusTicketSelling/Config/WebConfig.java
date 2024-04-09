@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.Config;
+package ua.deti.tqs.hw1busticketselling.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

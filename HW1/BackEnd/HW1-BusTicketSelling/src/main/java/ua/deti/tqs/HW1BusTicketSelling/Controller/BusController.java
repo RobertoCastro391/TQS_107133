@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.Controller;
+package ua.deti.tqs.hw1busticketselling.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.*;
 
 import lombok.AllArgsConstructor;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Bus;
-import ua.deti.tqs.HW1BusTicketSelling.Service.BusService;
+import ua.deti.tqs.hw1busticketselling.entity.Bus;
+import ua.deti.tqs.hw1busticketselling.service.BusService;
 
 
 @RestController
@@ -18,11 +18,11 @@ import ua.deti.tqs.HW1BusTicketSelling.Service.BusService;
 public class BusController {
 
     private static Logger log = LogManager.getLogger(BusController.class);
-    public BusService busService;
+    BusService busService;
 
     @GetMapping("/getBus/{busId}")
     public ResponseEntity<Bus> getBusById(@PathVariable("busId") int busId) {
-        log.info("GET /api/bus/getBus/" + busId);
+        log.info("GET /api/bus/getBus/{}", busId);
         return ResponseEntity.ok(busService.getBusById(busId));
     }
 

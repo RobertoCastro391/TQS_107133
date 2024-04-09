@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.UnitTests;
+package ua.deti.tqs.hw1busticketselling.unitTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,9 +10,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import ua.deti.tqs.HW1BusTicketSelling.DTO.BusReservationDTO;
+import ua.deti.tqs.hw1busticketselling.dto.BusReservationDTO;
 
-public class BusReservationDTOTest {
+class BusReservationDTOTest {
 
     private BusReservationDTO busReservationDTO;
 

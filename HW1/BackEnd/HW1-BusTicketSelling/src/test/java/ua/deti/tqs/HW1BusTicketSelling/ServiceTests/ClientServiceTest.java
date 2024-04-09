@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.ServiceTests;
+package ua.deti.tqs.hw1busticketselling.serviceTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
@@ -12,12 +12,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Client;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.ClientRepository;
-import ua.deti.tqs.HW1BusTicketSelling.Service.ClientService;
+import ua.deti.tqs.hw1busticketselling.entity.Client;
+import ua.deti.tqs.hw1busticketselling.repository.ClientRepository;
+import ua.deti.tqs.hw1busticketselling.service.ClientService;
 
 @ExtendWith(MockitoExtension.class)
-public class ClientServiceTest {
+class ClientServiceTest {
 
     @Mock(lenient = true)
     ClientRepository clientRepository;

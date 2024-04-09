@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.Controller;
+package ua.deti.tqs.hw1busticketselling.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.*;
 
 import lombok.AllArgsConstructor;
-import ua.deti.tqs.HW1BusTicketSelling.DTO.BusReservationDTO;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.ReservationTicket;
-import ua.deti.tqs.HW1BusTicketSelling.Service.BusRouteService;
-import ua.deti.tqs.HW1BusTicketSelling.Service.ReservationTicketService;
+import ua.deti.tqs.hw1busticketselling.dto.BusReservationDTO;
+import ua.deti.tqs.hw1busticketselling.entity.ReservationTicket;
+import ua.deti.tqs.hw1busticketselling.service.BusRouteService;
+import ua.deti.tqs.hw1busticketselling.service.ReservationTicketService;
 
 @RestController
 @AllArgsConstructor
@@ -26,14 +26,14 @@ public class ReservationTicketController {
     private final BusRouteService busRouteService;
     private final ReservationTicketService ticketReservationService;
 
-    private static Logger log = LogManager.getLogger(BusRouteController.class);
+    private static Logger log = LogManager.getLogger(ReservationTicketController.class);
 
 
     @GetMapping("/getReservation/{reservationId}")
     public ResponseEntity<ReservationTicket> getTicketReservatinByTicketId(
             @PathVariable("reservationId") String reservationId) {
 
-        log.info("GET Reservation by reservationId: " + reservationId);
+        log.info("GET Reservation by reservationId: {}", reservationId);
 
         return ResponseEntity.ok(ticketReservationService.getTicketById(reservationId));
     }
@@ -41,7 +41,7 @@ public class ReservationTicketController {
     @PostMapping("/createReservation")
     public ResponseEntity<Object> createReservation(@RequestBody BusReservationDTO reservationDTO) {
 
-        log.info("POST Create Reservation: " + reservationDTO.toString());
+        log.info("Reservation details: {}", reservationDTO);
 
         if (!busRouteService.isBusAvailable(busRouteService.getBusRouteById(reservationDTO.getRouteId()))) {
             log.info("Error: Bus is full");
@@ -56,7 +56,7 @@ public class ReservationTicketController {
         } else {
             Map<String, Object> response = new HashMap<>();
             response.put("ticketId", ticket.getTicketId());
-            log.info("Response: " + response);
+            log.info("Response: {}", response);
             return ResponseEntity.ok().body(response);
         }
     }

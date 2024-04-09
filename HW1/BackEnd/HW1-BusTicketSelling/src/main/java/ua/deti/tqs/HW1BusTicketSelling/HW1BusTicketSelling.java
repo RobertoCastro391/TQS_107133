@@ -1,11 +1,11 @@
-package ua.deti.tqs.HW1BusTicketSelling;
+package ua.deti.tqs.hw1busticketselling;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Hw1BusTicketSellingApplication {
+public class HW1BusTicketSelling {
 	public static void main(String[] args) {
-		SpringApplication.run(Hw1BusTicketSellingApplication.class, args);
+		SpringApplication.run(HW1BusTicketSelling.class, args);
 	}
 }

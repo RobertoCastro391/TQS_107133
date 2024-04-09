@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.Entity;
+package ua.deti.tqs.hw1busticketselling.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

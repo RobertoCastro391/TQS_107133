@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.Controller;
+package ua.deti.tqs.hw1busticketselling.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.*;
 import lombok.AllArgsConstructor;
+import ua.deti.tqs.hw1busticketselling.dto.BusRouteSearchDTO;
+import ua.deti.tqs.hw1busticketselling.entity.BusRoute;
+import ua.deti.tqs.hw1busticketselling.service.BusRouteService;
+
 import java.util.List;
 import java.util.Map;
-
-import ua.deti.tqs.HW1BusTicketSelling.DTO.BusRouteSearchDTO;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.BusRoute;
-import ua.deti.tqs.HW1BusTicketSelling.Service.BusRouteService;
 
 @RestController
 @AllArgsConstructor
@@ -29,7 +29,7 @@ public class BusRouteController {
     public ResponseEntity<BusRoute> getBusRouteById(@PathVariable("busRouteId") String busRouteId) {
         log.info("GET BusRoutes by busRouteId");
         BusRoute response = busRouteService.getBusRouteById(busRouteId);
-        log.info("Response: " + busRouteService.getBusRouteById(busRouteId));
+        log.info("Response: {}", busRouteService.getBusRouteById(busRouteId));
         
         return ResponseEntity.ok(response);
     }
@@ -42,9 +42,9 @@ public class BusRouteController {
 
     @PostMapping("/searchBusRoute")
     public ResponseEntity<Map<String, Object>> searchBusRoute(@RequestBody BusRouteSearchDTO busRouteSearchDTO) {
-        log.info("GET Bus Routes by: " + busRouteSearchDTO.getDepartureCity() + ", " + busRouteSearchDTO.getArrivalCity() + ", " + busRouteSearchDTO.getDate());
+        log.info("GET Bus Routes by: {}", busRouteSearchDTO.getDepartureCity() + ", " + busRouteSearchDTO.getArrivalCity() + ", " + busRouteSearchDTO.getDate());
         List<BusRoute> busRoutes = busRouteService.searchBusRoute(busRouteSearchDTO);
-        log.info("Response: " + busRoutes);
+        log.info("Response: {}", busRoutes);
         
         if (busRoutes.isEmpty()) {
             return ResponseEntity.ok(Map.of("message", "No bus routes found"));

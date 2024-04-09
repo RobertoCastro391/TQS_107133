@@ -1,18 +1,17 @@
-package ua.deti.tqs.HW1BusTicketSelling.Controller;
+package ua.deti.tqs.hw1busticketselling.controller;
 
 import lombok.AllArgsConstructor;
+import ua.deti.tqs.hw1busticketselling.service.CurrencyService;
 
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ua.deti.tqs.HW1BusTicketSelling.Service.CurrencyService;
 
 @RestController
 @AllArgsConstructor
@@ -21,7 +20,6 @@ public class CurrencyController {
 
     private static final Logger log = LogManager.getLogger(CurrencyController.class);
     
-    @Autowired
     private final CurrencyService currencyService;
     
     @GetMapping("/getExchangeRate/{currencyWanted}")

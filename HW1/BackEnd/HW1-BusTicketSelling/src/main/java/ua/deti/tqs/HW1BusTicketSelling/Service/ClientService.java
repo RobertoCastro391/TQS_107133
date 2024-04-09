@@ -1,9 +1,9 @@
-package ua.deti.tqs.HW1BusTicketSelling.Service;
+package ua.deti.tqs.hw1busticketselling.service;
 
 import org.springframework.stereotype.Service;
 
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Client;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.ClientRepository;
+import ua.deti.tqs.hw1busticketselling.entity.Client;
+import ua.deti.tqs.hw1busticketselling.repository.ClientRepository;
 
 @Service
 public class ClientService {

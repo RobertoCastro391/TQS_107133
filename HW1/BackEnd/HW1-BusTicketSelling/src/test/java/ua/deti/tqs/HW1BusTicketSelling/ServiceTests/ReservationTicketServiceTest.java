@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.ServiceTests;
+package ua.deti.tqs.hw1busticketselling.serviceTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -18,18 +18,18 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import ua.deti.tqs.HW1BusTicketSelling.DTO.BusReservationDTO;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Bus;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.BusRoute;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Client;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.ReservationTicket;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRouteRepository;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.ClientRepository;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.ReservationTicketRepository;
-import ua.deti.tqs.HW1BusTicketSelling.Service.ReservationTicketService;
+import ua.deti.tqs.hw1busticketselling.dto.BusReservationDTO;
+import ua.deti.tqs.hw1busticketselling.entity.Bus;
+import ua.deti.tqs.hw1busticketselling.entity.BusRoute;
+import ua.deti.tqs.hw1busticketselling.entity.Client;
+import ua.deti.tqs.hw1busticketselling.entity.ReservationTicket;
+import ua.deti.tqs.hw1busticketselling.repository.BusRouteRepository;
+import ua.deti.tqs.hw1busticketselling.repository.ClientRepository;
+import ua.deti.tqs.hw1busticketselling.repository.ReservationTicketRepository;
+import ua.deti.tqs.hw1busticketselling.service.ReservationTicketService;
 
 @ExtendWith(MockitoExtension.class)
-public class ReservationTicketServiceTest {
+class ReservationTicketServiceTest {
 
     @Mock(lenient = true)
     ReservationTicketRepository reservationTicketRepository;

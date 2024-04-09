@@ -1,10 +1,19 @@
-package ua.deti.tqs.HW1BusTicketSelling.IntegrationTests;
+package ua.deti.tqs.hw1busticketselling.integrationTests;
 
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Date;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import ua.deti.tqs.hw1busticketselling.dto.BusReservationDTO;
+import ua.deti.tqs.hw1busticketselling.entity.Bus;
+import ua.deti.tqs.hw1busticketselling.entity.BusRoute;
+import ua.deti.tqs.hw1busticketselling.entity.Client;
+import ua.deti.tqs.hw1busticketselling.entity.ReservationTicket;
+import ua.deti.tqs.hw1busticketselling.service.BusRouteService;
+import ua.deti.tqs.hw1busticketselling.service.ReservationTicketService;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,21 +25,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import ua.deti.tqs.HW1BusTicketSelling.DTO.BusReservationDTO;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Bus;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.BusRoute;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Client;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.ReservationTicket;
-import ua.deti.tqs.HW1BusTicketSelling.Service.BusRouteService;
-import ua.deti.tqs.HW1BusTicketSelling.Service.ReservationTicketService;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ReservationTicketControllerTest {
+class ReservationTicketControllerTest {
 
         @Autowired
         private MockMvc mockMvc;
@@ -44,7 +45,7 @@ public class ReservationTicketControllerTest {
         private String url = "/api/reservation";
 
         @BeforeEach
-        public void setUp() {
+        void setUp() {
 
                 Bus bus1 = new Bus(1, "11-BB-11", "Mercedes", "Sprinter", 20, "Renex");
 

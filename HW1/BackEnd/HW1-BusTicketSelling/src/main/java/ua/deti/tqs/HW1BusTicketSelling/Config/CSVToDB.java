@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.Config;
+package ua.deti.tqs.hw1busticketselling.config;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,16 +9,16 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Bus;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.BusRoute;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRepository;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRouteRepository;
+import ua.deti.tqs.hw1busticketselling.entity.Bus;
+import ua.deti.tqs.hw1busticketselling.entity.BusRoute;
+import ua.deti.tqs.hw1busticketselling.repository.BusRepository;
+import ua.deti.tqs.hw1busticketselling.repository.BusRouteRepository;
 
 @Component
 public class CSVToDB implements CommandLineRunner {
 
-    public String csvBuses = "src/main/resources/buses.csv";
-    public String csvBusRoutes = "src/main/resources/bus_routes.csv";
+    private String csvBuses = "src/main/resources/buses.csv";
+    private String csvBusRoutes = "src/main/resources/bus_routes.csv";
 
     private BusRepository busRepository;
     private BusRouteRepository busRouteRepository;
@@ -26,6 +26,11 @@ public class CSVToDB implements CommandLineRunner {
     public CSVToDB(BusRepository busRepository, BusRouteRepository busRouteRepository) {
         this.busRepository = busRepository;
         this.busRouteRepository = busRouteRepository;
+    }
+
+    public void setCSVFiles(String csvBuses, String csvBusRoutes) {
+        this.csvBuses = csvBuses;
+        this.csvBusRoutes = csvBusRoutes;
     }
 
     @Override
@@ -36,8 +41,7 @@ public class CSVToDB implements CommandLineRunner {
 
     public void loadBuses() throws Exception {
         try (BufferedReader br = new BufferedReader(new FileReader(csvBuses))) {
-            String line;
-            br.readLine();
+            String line = br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
 
@@ -51,7 +55,7 @@ public class CSVToDB implements CommandLineRunner {
                 bus.setBusSeats(Integer.parseInt(data[3]));
                 bus.setBusCompany(data[4]);
                 busRepository.save(bus);
-            }
+            } 
         }
     }
 
@@ -60,8 +64,7 @@ public class CSVToDB implements CommandLineRunner {
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvBusRoutes))) {
-            String line;
-            br.readLine(); // Skip header
+            String line = br.readLine(); 
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
 

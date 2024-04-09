@@ -1,14 +1,14 @@
-package ua.deti.tqs.HW1BusTicketSelling.Service;
+package ua.deti.tqs.hw1busticketselling.service;
 
 import org.springframework.stereotype.Service;
 
-import ua.deti.tqs.HW1BusTicketSelling.DTO.BusReservationDTO;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.BusRoute;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Client;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.ReservationTicket;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRouteRepository;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.ClientRepository;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.ReservationTicketRepository;
+import ua.deti.tqs.hw1busticketselling.dto.BusReservationDTO;
+import ua.deti.tqs.hw1busticketselling.entity.BusRoute;
+import ua.deti.tqs.hw1busticketselling.entity.Client;
+import ua.deti.tqs.hw1busticketselling.entity.ReservationTicket;
+import ua.deti.tqs.hw1busticketselling.repository.BusRouteRepository;
+import ua.deti.tqs.hw1busticketselling.repository.ClientRepository;
+import ua.deti.tqs.hw1busticketselling.repository.ReservationTicketRepository;
 
 @Service
 public class ReservationTicketService {
@@ -58,7 +58,7 @@ public class ReservationTicketService {
         return reservationTicketRepository.save(reservation);
     }
 
-    public ReservationTicket getTicketById(String ticket_id) {
-        return reservationTicketRepository.findByTicketId(ticket_id);
+    public ReservationTicket getTicketById(String ticketId) {
+        return reservationTicketRepository.findByTicketId(ticketId);
     } 
 }

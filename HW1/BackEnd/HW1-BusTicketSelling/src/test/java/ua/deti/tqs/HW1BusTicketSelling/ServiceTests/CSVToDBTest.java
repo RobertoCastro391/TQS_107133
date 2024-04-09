@@ -1,4 +1,4 @@
-package ua.deti.tqs.HW1BusTicketSelling.ServiceTests;
+package ua.deti.tqs.hw1busticketselling.serviceTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -6,16 +6,17 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import ua.deti.tqs.hw1busticketselling.config.CSVToDB;
+import ua.deti.tqs.hw1busticketselling.entity.Bus;
+import ua.deti.tqs.hw1busticketselling.entity.BusRoute;
+import ua.deti.tqs.hw1busticketselling.repository.BusRepository;
+import ua.deti.tqs.hw1busticketselling.repository.BusRouteRepository;
+
 import static org.mockito.Mockito.*;
 import static org.mockito.ArgumentMatchers.any;
 
-import ua.deti.tqs.HW1BusTicketSelling.Config.CSVToDB;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.Bus;
-import ua.deti.tqs.HW1BusTicketSelling.Entity.BusRoute;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRepository;
-import ua.deti.tqs.HW1BusTicketSelling.Repository.BusRouteRepository;
-
-public class CSVToDBTest {
+class CSVToDBTest {
 
     @Mock
     private BusRepository busRepository;
@@ -29,9 +30,7 @@ public class CSVToDBTest {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-
-        csvToDB.csvBuses = "src/test/resources/test_buses.csv";
-        csvToDB.csvBusRoutes = "src/test/resources/test_bus_routes.csv";
+        csvToDB.setCSVFiles("src/test/resources/test_buses.csv", "src/test/resources/test_bus_routes.csv");
     }
 
     @Test
