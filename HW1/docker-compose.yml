@@ -1,25 +1,26 @@
-version: '3'
+version: '3.8'
 
 services:
 
-  Database:
-    image: mysql:latest
-    container_name: mysql-db
+  db:
+    image: mysql/mysql-server:8.0.26
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: HW1BusTicketSelling
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
+      MYSQL_DATABASE: 'HW1BusTicketSelling'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user_password'
+      MYSQL_ROOT_PASSWORD: 'root_password'
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "user", "--password=password"]
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
       start_period: 5s
       interval: 5s
       timeout: 5s
-      retries: 5
+      retries: 55
+    ports:
+      - 3306:3306
+    volumes:
+      - /var/lib/mysql  
+    networks:
+      - app-network
 
   backend:
     build:
@@ -28,10 +29,20 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      Database:
+      db:
         condition: service_healthy
+    volumes:
+      - ./Backend/HW1-BusTicketSelling/src/main/resources/buses.csv:/app/src/main/resources/buses.csv
+      - ./Backend/HW1-BusTicketSelling/src/main/resources/bus_routes.csv:/app/src/main/resources/bus_routes.csv
     networks:
       - app-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80" 
+    depends_on:
+      - backend
 
 
 networks:

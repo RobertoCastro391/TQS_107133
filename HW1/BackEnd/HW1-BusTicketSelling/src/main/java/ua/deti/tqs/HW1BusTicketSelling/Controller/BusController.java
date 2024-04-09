@@ -27,7 +27,7 @@ public class BusController {
     }
 
     @GetMapping("/getBuses")
-    public ResponseEntity<?> getBuses() {
+    public ResponseEntity<Object> getBuses() {
         log.info("GET /api/bus/getBuses");
         return ResponseEntity.ok(busService.getBuses());
     }

@@ -35,7 +35,7 @@ public class BusRouteController {
     }
 
     @GetMapping("/getBusRoutes")
-    public ResponseEntity<?> getBusRoutes() {
+    public ResponseEntity<Object> getBusRoutes() {
         log.info("Get All BusRoutes");
         return ResponseEntity.ok(busRouteService.getBusRoutes());
     }

@@ -5,7 +5,7 @@ Feature: BusTicket Book Bus
 
     Scenario: Book a bus
         When I write "Aveiro" as the departure city and "Porto" as the arrival city
-        And I select the date "08-04-2024" for the departure
+        And I select the date "11-04-2024" for the departure
         And I click on the Search Buses button
         And I select the Currency "¥ - JPY - Japanese Yen"
         And I choose the bus with Bus Number "R045"

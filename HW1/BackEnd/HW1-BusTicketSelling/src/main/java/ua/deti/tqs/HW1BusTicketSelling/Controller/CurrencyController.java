@@ -1,16 +1,17 @@
 package ua.deti.tqs.HW1BusTicketSelling.Controller;
 
-import org.apache.logging.log4j.*;
+import lombok.AllArgsConstructor;
+
+import java.util.Map;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.caffeine.CaffeineCache;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import lombok.AllArgsConstructor;
 import ua.deti.tqs.HW1BusTicketSelling.Service.CurrencyService;
 
 @RestController
@@ -18,43 +19,22 @@ import ua.deti.tqs.HW1BusTicketSelling.Service.CurrencyService;
 @RequestMapping("/api/currency")
 public class CurrencyController {
 
-    private static Logger log = LogManager.getLogger(BusController.class);
+    private static final Logger log = LogManager.getLogger(CurrencyController.class);
     
     @Autowired
-    private CacheManager cacheManager;
-
     private final CurrencyService currencyService;
     
-    @GetMapping("/getExhangeRate/{currencyWanted}")
-    public ResponseEntity<?> getExchangeRate(@PathVariable String currencyWanted) {
-        
-        log.info("GET Echange Rate: EUR -> " + currencyWanted);
-                
-        String cacheKey = currencyWanted;
-        CaffeineCache cache = (CaffeineCache) cacheManager.getCache("exchangeRates");
-        
-        if (cache != null && cache.getNativeCache().asMap().get(cacheKey) != null) {
-            log.info("GET Echange Rate from cache");
-        } else {
-            log.info("GET Echange Rate from API");
-        }
-        
-        currencyService.getExchangeRate(currencyWanted);
-        return ResponseEntity.ok(currencyService.getExchangeRate(currencyWanted));
+    @GetMapping("/getExchangeRate/{currencyWanted}")
+    public ResponseEntity<Object> getExchangeRate(@PathVariable String currencyWanted) {
+        log.info("GET Exchange Rate: EUR -> {}", currencyWanted);
+        Map<String, Object> response = currencyService.getExchangeRate(currencyWanted);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/getAllCurrencies")
-    public ResponseEntity<?> getAllCurrencies() {
+    public ResponseEntity<Object> getAllCurrencies() {
         log.info("GET All Currencies");
-
-        CaffeineCache cache = (CaffeineCache) cacheManager.getCache("allCurrencies");
-
-        if (cache != null && cache.getNativeCache().asMap() != null) {
-            log.info("GET All Currencies from cache");
-        } else {
-            log.info("GET All Currencies from API");
-        }
-
-        return ResponseEntity.ok(currencyService.getAllCurrencies());
+        Map<String, Object> response = currencyService.getAllCurrencies();
+        return ResponseEntity.ok(response);
     }   
 }

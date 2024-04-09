@@ -124,5 +124,4 @@ public class BusReservationDTOTest {
         busReservationDTO.setPrice(10.0);
         assertEquals(10.0, busReservationDTO.getPrice());
     }
-        
 }

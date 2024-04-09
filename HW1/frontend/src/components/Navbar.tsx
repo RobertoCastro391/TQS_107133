@@ -48,7 +48,7 @@ const Navbar = () => {
 
 
     try {
-      const url = `http://localhost:8080/api/currency/getExhangeRate/${currency.code}`;
+      const url = `http://localhost:8080/api/currency/getExchangeRate/${currency.code}`;
       
       const response = await fetch(url , {
         method: "GET",

@@ -1,6 +1,7 @@
 package ua.deti.tqs.HW1BusTicketSelling.ServiceTests;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -28,13 +29,14 @@ public class CSVToDBTest {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        
+
         csvToDB.csvBuses = "src/test/resources/test_buses.csv";
         csvToDB.csvBusRoutes = "src/test/resources/test_bus_routes.csv";
     }
 
     @Test
-    public void testLoadBuses() throws Exception {
+    @DisplayName("Test loadBuses")
+    void testLoadBuses() throws Exception {
         when(busRepository.findByBusLicensePlate(anyString())).thenReturn(null);
 
         csvToDB.loadBuses();
@@ -43,7 +45,8 @@ public class CSVToDBTest {
     }
 
     @Test
-    public void testLoadBusRoutes() throws Exception {
+    @DisplayName("Test loadBusRoutes")
+    void testLoadBusRoutes() throws Exception {
         when(busRouteRepository.findByRouteId(anyString())).thenReturn(null);
         when(busRepository.findByBusLicensePlate(anyString())).thenReturn(new Bus());
 

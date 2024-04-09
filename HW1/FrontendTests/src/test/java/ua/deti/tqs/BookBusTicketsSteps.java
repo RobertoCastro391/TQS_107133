@@ -29,14 +29,14 @@ public class BookBusTicketsSteps {
     static String bookingId = "";
 
     @Given("I am on the BusTicket homepage on {string}")
-    void i_am_on_the_BusTicket_homepage(String url) {
+    public void i_am_on_the_BusTicket_homepage(String url) {
         logger.info("Opening browser at {}", url);
         driver.get(url);
         driver.manage().window().setSize(new Dimension(1440, 820));
     }
 
     @When("I write {string} as the departure city and {string} as the arrival city")
-    void i_select_as_the_departure_city_and_as_the_destination_city(String departure, String destination) {
+    public void i_select_as_the_departure_city_and_as_the_destination_city(String departure, String destination) {
 
         WebElement elementDep = driver.findElement(By.id("from"));
         Boolean isEditable = elementDep.isEnabled() && elementDep.getAttribute("readonly") == null;
@@ -54,7 +54,7 @@ public class BookBusTicketsSteps {
     }
 
     @And("I select the date {string} for the departure")
-    void i_select_the_departure_date(String depDate) {
+    public void i_select_the_departure_date(String depDate) {
         logger.info("Departure Date is: {}", depDate);
         WebElement element = driver.findElement(By.id("date"));
         element.click();
@@ -62,14 +62,14 @@ public class BookBusTicketsSteps {
     }
 
     @And("I click on the Search Buses button")
-    void i_click_on_the_SearchButtons() {
+    public void i_click_on_the_SearchButtons() {
         WebElement element = driver.findElement(By.cssSelector(".btn-primary"));
         logger.info("CLick on the Search Buses button");
         element.click();
     }
 
     @And("I select the Currency {string}")
-    void i_select_the_currency(String currency) {
+    public void i_select_the_currency(String currency) {
         WebElement element = driver.findElement(By.id("dropdown-variants-Currency"));
         element.click();
         logger.info("Choosing the currency: {}", currency);
@@ -79,14 +79,14 @@ public class BookBusTicketsSteps {
     }
 
     @And("I choose the bus with Bus Number {string}")
-    void i_choose_the_bus_with_busNumber(String busNumer) {
+    public void i_choose_the_bus_with_busNumber(String busNumer) {
         WebElement element = driver.findElement(By.linkText("Book Now !"));
         logger.info("Choosing the Bus with Bus Number: {}", busNumer);
         element.click();
     }
 
     @And("I fill in the form with the following information:")
-    void i_fill_in_the_form_with_the_following_information(Map<String, String> info) {
+    public void i_fill_in_the_form_with_the_following_information(Map<String, String> info) {
         logger.info("Filling the info in the form: {}.", info);
 
         WebElement element = driver.findElement(By.cssSelector(
@@ -152,7 +152,7 @@ public class BookBusTicketsSteps {
     }
 
     @And("I click on the Confirm Button")
-    void i_click_on_the_Confirm_Button() {
+    public void i_click_on_the_Confirm_Button() {
         logger.info("Clicking on the Confirm Button");
         WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/a"));
         element.click();
@@ -160,7 +160,7 @@ public class BookBusTicketsSteps {
 
 
     @And("I capture the confirmation code")
-    void i_capture_the_confirmation_code() {
+    public void i_capture_the_confirmation_code() {
         
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(), 'Your booking id is:')]")));
@@ -172,7 +172,7 @@ public class BookBusTicketsSteps {
     }
 
     @Then("I should get the {string}")
-    void get_Booking_Confirmation_page(String message) {
+    public void get_Booking_Confirmation_page(String message) {
         WebElement element = driver.findElement(By.xpath("//*[@id='root']/div/h1"));
         assertEquals(message, element.getText());
 
@@ -182,14 +182,14 @@ public class BookBusTicketsSteps {
     }
 
     @When("I click on the Check Reservation button")
-    void i_click_on_the_Check_Reservation_button() {
+    public void i_click_on_the_Check_Reservation_button() {
         logger.info("Clicking on the Check Reservation button");
         WebElement element = driver.findElement(By.linkText("Check your booking"));
         element.click();
     }
 
     @And("I write the confirmation code")
-    void i_write_the_confirmation_code() {
+    public void i_write_the_confirmation_code() {
         logger.info("Writing the confirmation code: {}", bookingId);
         WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/form/div[1]/input"));
         element.sendKeys(bookingId);
@@ -197,14 +197,14 @@ public class BookBusTicketsSteps {
     }
 
     @And("I click on the Search Button")
-    void i_click_on_the_Check_Button() {
+    public void i_click_on_the_Check_Button() {
         logger.info("Clicking on the Search Button");
         WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div/form/div[2]/button"));
         element.click();
     }
 
     @Then("I should get the {string} and the Reservation Status {string}")
-    void i_should_get_the_and_the_Reservation_Status(String message, String status) {
+    public void i_should_get_the_and_the_Reservation_Status(String message, String status) {
         logger.info("Checking the reservation status");
         
         

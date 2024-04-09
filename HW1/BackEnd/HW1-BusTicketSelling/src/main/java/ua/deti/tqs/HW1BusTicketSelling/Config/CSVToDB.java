@@ -1,6 +1,5 @@
 package ua.deti.tqs.HW1BusTicketSelling.Config;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.SimpleDateFormat;
@@ -28,8 +27,7 @@ public class CSVToDB implements CommandLineRunner {
         this.busRepository = busRepository;
         this.busRouteRepository = busRouteRepository;
     }
-    
-    
+
     @Override
     public void run(String... args) throws Exception {
         loadBuses();
@@ -60,17 +58,17 @@ public class CSVToDB implements CommandLineRunner {
     public void loadBusRoutes() throws Exception {
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        
+
         try (BufferedReader br = new BufferedReader(new FileReader(csvBusRoutes))) {
             String line;
             br.readLine(); // Skip header
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
-                
+
                 if (busRouteRepository.findByRouteId(data[0]) != null) {
                     continue;
                 }
-                
+
                 BusRoute route = new BusRoute();
                 route.setRouteId(data[0]);
                 route.setDepartureCity(data[1]);
@@ -81,8 +79,7 @@ public class CSVToDB implements CommandLineRunner {
                 route.setArrivalTime(timeFormat.parse(data[6]));
                 route.setDuration(Integer.parseInt(data[7]));
                 route.setPrice(Double.parseDouble(data[8]));
-                
-                
+
                 Bus bus = busRepository.findByBusLicensePlate(data[9]);
                 route.setBusId(bus.getBusId());
                 route.setBusInfo(bus);

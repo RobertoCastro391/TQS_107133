@@ -39,7 +39,7 @@ public class ReservationTicketController {
     }
 
     @PostMapping("/createReservation")
-    public ResponseEntity<?> createReservation(@RequestBody BusReservationDTO reservationDTO) {
+    public ResponseEntity<Object> createReservation(@RequestBody BusReservationDTO reservationDTO) {
 
         log.info("POST Create Reservation: " + reservationDTO.toString());
 

@@ -24,10 +24,8 @@ import ua.deti.tqs.HW1BusTicketSelling.Entity.ReservationTicket;
 import ua.deti.tqs.HW1BusTicketSelling.Service.BusRouteService;
 import ua.deti.tqs.HW1BusTicketSelling.Service.ReservationTicketService;
 
-import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
@@ -142,7 +140,7 @@ public class ReservationTicketControllerTest {
         @Test
         @DisplayName("Create Reservation Failure - Ticket Creation Returns Null")
         void createReservationFailureTicketIsNull() throws Exception {
-                
+
                 BusReservationDTO reservationDTO = new BusReservationDTO();
                 reservationDTO.setRouteId("1");
                 reservationDTO.setClientName("Joao");
@@ -157,7 +155,7 @@ public class ReservationTicketControllerTest {
                 reservationDTO.setCreditCardNumber("11112222");
                 reservationDTO.setCreditCardExpiration("12/24");
                 reservationDTO.setCreditCardCVV("123");
-                reservationDTO.setPrice(10.00); 
+                reservationDTO.setPrice(10.00);
 
                 Mockito.when(reservationTicketService.createTicket(Mockito.any(BusReservationDTO.class)))
                                 .thenReturn(null);
