@@ -1,10 +1,11 @@
+# Use OpenJDK 17 as the base image
 FROM openjdk:17 AS builder
-WORKDIR /hw1
+WORKDIR /app
 COPY . .
-RUN mvn package -DskipTests
+COPY src ./src
+RUN ./mvnw package -DskipTests
 FROM openjdk:17
 WORKDIR /app
-ARG JAR_FILE=target/HW1-BusTicketSelling-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
+COPY --from=builder /app/target/hw1-busTicketSelling-0.0.1-SNAPSHOT.jar backend.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "backend.jar"]

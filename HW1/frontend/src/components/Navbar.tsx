@@ -115,7 +115,7 @@ const Navbar = () => {
               <a
                 className="nav-link active"
                 aria-current="page"
-                href="/checkBooking"
+                onClick={() => navigate("/checkBooking")}
               >
                 Check your booking
               </a>

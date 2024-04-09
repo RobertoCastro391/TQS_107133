@@ -219,5 +219,11 @@ public class BookBusTicketsSteps {
 
         element = driver.findElement(By.xpath("/html/body/div/nav/div/a"));
         element.click();
+
+    }
+
+    @io.cucumber.java.After
+    public void tearDown() {
+        driver.quit();
     }
 }
